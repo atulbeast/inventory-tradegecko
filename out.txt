@@ -1,83 +1,83 @@
-    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <soap:Header>
-        <AuthenticationHeader xmlns="http://sma-promail/">
-          <Username>ws_ConsciousLive</Username>
-          <Password>Ag00DCau$3</Password>
-        </AuthenticationHeader>
-      </soap:Header>
-      <soap:Body>
-        <AddOrder xmlns="http://sma-promail/">
-          <order>
-            <Header>
-              <ID>CS-TEST316</ID>
-              <EntryDate>2019-02-08 13:08:47 UTC</EntryDate>
-              <OrderEntryView>
-                <Description>Default</Description>
-              </OrderEntryView>
-              <InsertDate>2019-02-08 13:08:47 UTC</InsertDate>
-            </Header>
-            <Classification>
-              <Source>
-                <Description>TradeGecko</Description>
-            </Source>
-            </Classification>
-            <Shipping>
-            <FreightCode>U11</FreightCode>
-            <FreightCodeDescription>Ground</FreightCodeDescription>
-            </Shipping>
-            <OrderedBy>
-              <FirstName>Chetan</FirstName>
-              <LastName>Joshi</LastName>
-              <CompanyName></CompanyName>
-              <Address1>Floor 2</Address1>
-              <City>Singapore</City>
-              <State></State>
-              <PostalCode>068590</PostalCode>
-              <Email>Chetan</Email>
-              <UID>154145</UID>
-              <TaxExempt></TaxExempt>
-              <TaxExemptApproved></TaxExemptApproved>
-              <Commercial>false</Commercial>
-            </OrderedBy>
-            <ShipTo>
-            <OrderShipTo>
-            <FirstName></FirstName>
-            <LastName></LastName>
-            <Address1>Floor 2</Address1>
-            <City>Singapore</City>
-            <State></State>
-            <PostalCode>068590</PostalCode>
-            <UID>154145</UID>
-            <TaxExempt></TaxExempt>
-            <TaxExemptApproved></TaxExemptApproved>
-            <Commercial>false</Commercial>
-            <Flag>Other</Flag><Key>0</Key>
-            </OrderShipTo>
-            </ShipTo>
-            <BillTo>
-            <TaxExempt></TaxExempt>
-            <TaxExemptApproved></TaxExemptApproved>
-            <Commercial>false</Commercial>
-              <Flag>OrderedBy</Flag>
-            </BillTo>
-            <Offers>
-            <OfferOrdered>
-    <Offer>
-      <Header>
-        <ID>MSCON002</ID>
-      </Header>
-    </Offer>
-    <Quantity>1</Quantity>
-    <OrderShipToKey>
-      <Key>0</Key>
-    </OrderShipToKey>
-    <UnitPrice>800.0</UnitPrice>
-    <ShippingHandling>0.00</ShippingHandling>
-    <Discounts>0.0</Discounts>
-  </OfferOrdered>
-              
-            </Offers>
-          </order>
-        </AddOrder>
-      </soap:Body>
-    </soap:Envelope>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Header>
+    <AuthenticationHeader xmlns="http://sma-promail/">
+      <Username>ws_ConsciousLive</Username>
+      <Password>Ag00DCau$3</Password>
+    </AuthenticationHeader>
+  </soap:Header>
+  <soap:Body>
+    <AddOrder xmlns="http://sma-promail/">
+      <order>
+        <Header>
+          <ID>CS-50506934</ID>
+          <EntryDate>2019-02-08T18:50:11Z</EntryDate>
+          <OrderEntryView>
+            <Description>Default</Description>
+          </OrderEntryView>
+          <InsertDate>2019-02-08T18:50:11Z</InsertDate>
+        </Header>
+        <Classification>
+          <Source>
+            <Description>TradeGecko</Description>
+        </Source>
+        </Classification>
+        <Shipping>
+        <FreightCode>U11</FreightCode>
+        <FreightCodeDescription>Ground</FreightCodeDescription>
+        </Shipping>
+        <OrderedBy>
+          <FirstName>Chetan</FirstName>
+          <LastName>Joshi</LastName>
+          <CompanyName></CompanyName>
+          <Address1>Ziggle Tech,Inc</Address1>
+          <City>New York</City>
+          <State>NY</State>
+          <PostalCode>10036</PostalCode>
+          <Email>Chetan</Email>
+          <UID>154145</UID>
+          <TaxExempt>false</TaxExempt>
+          <TaxExemptApproved>false</TaxExemptApproved>
+          <Commercial>false</Commercial>
+        </OrderedBy>
+        <ShipTo>
+        <OrderShipTo>
+        <FirstName>Chetan</FirstName>
+        <LastName>Joshi</LastName>
+        <Address1>Ziggle Tech,Inc</Address1>
+        <City>New York</City>
+        <State>NY</State>
+        <PostalCode>10036</PostalCode>
+        <UID>154145</UID>
+        <TaxExempt>false</TaxExempt>
+        <TaxExemptApproved>false</TaxExemptApproved>
+        <Commercial>false</Commercial>
+        <Flag>Other</Flag><Key>0</Key>
+        </OrderShipTo>
+        </ShipTo>
+        <BillTo>
+        <TaxExempt>false</TaxExempt>
+        <TaxExemptApproved>false</TaxExemptApproved>
+        <Commercial>false</Commercial>
+          <Flag>OrderedBy</Flag>
+        </BillTo>
+        <Offers>
+        <OfferOrdered>
+<Offer>
+  <Header>
+    <ID>MSCON002</ID>
+  </Header>
+</Offer>
+<Quantity>1</Quantity>
+<OrderShipToKey>
+  <Key>0</Key>
+</OrderShipToKey>
+<UnitPrice>600.0</UnitPrice>
+<ShippingHandling>0.00</ShippingHandling>
+<Discounts>0.0</Discounts>
+</OfferOrdered>
+          
+        </Offers>
+      </order>
+    </AddOrder>
+  </soap:Body>
+</soap:Envelope>

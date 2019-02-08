@@ -27,13 +27,12 @@ class HomeController < ApplicationController
   def create_order
     order_new=false
     common=ModelHelper.new
-    order_main=@gecko.Order.find(50485270)
-    
+    puts params
+    order_main=@gecko.Order.find(gecko_params[:object_id])
     user=@gecko.User.find(order_main[:user_id])
     order_model=Order.find_by(order_id:order_main[:id])
     billing=@gecko.Address.find(order_main[:billing_address_id])
     shipping=@gecko.Address.find(order_main[:shipping_address_id])
-    
         user_model=common.user_method(user)
         bill_address_model= common.address_method(billing)
         ship_address_model= common.address_method(shipping)
