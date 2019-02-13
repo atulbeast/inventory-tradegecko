@@ -5,37 +5,43 @@ require 'savon'
 class ModelHelper
 
 def address_method(model)
+  a_model=Address.find_by_address_id(model[:id])
+  unless a_model.present?
     a_model=Address.new
     a_model[:address_id]=model[:id]
     a_model[:first_name]=model[:first_name]
     a_model[:last_name]=model[:last_name]
     a_model[:company_name]=model[:company_name]
+    a_model[:company_id]=model[:company_id]
     a_model[:address_one]=model[:address1]
     a_model[:city]=model[:city]
     a_model[:state]=model[:state]
     a_model[:postal_code]=model[:zip_code]
+    a_model.save
+  end
     #a_model.save
     a_model
 end
 def user_method(model)
+u_model=User.find_by_uid(model[:id])
+unless u_model.present?
 u_model=User.new
 u_model[:first_name]=model[:first_name]
 u_model[:last_name]=model[:last_name]
-#u_model[:company_name]=model[:company_name]
-#u_model[:address_one]=model[:address_one]
-#u_model[:status]=model[:status]
-#u_model[:phone_number]=model[:phone_number]
+
 u_model[:uid]=model[:id]
 u_model[:email]=model[:email]
-# u_model[:tax_exempt]=model[:tax_exempt]
-# u_model[:tax_exempt_approved]=model[:tax_exempt_approved]
-#u_model[:commercial]=model[:commercial]
-#u_model.save
+u_model.save
+end
 u_model
 end
 
 def order_method(model)
-o_model=Order.new
+  o_model=Order.new
+ if (model.present?)
+  o_model[:id]=model[:id]
+ end
+
 o_model[:order_id]= model[:id]
 o_model[:order_line_item_ids]= model[:order_line_item_ids].map(&:inspect).join(', ')
 #o_model[:company_id]= model[:company_id]
@@ -79,13 +85,19 @@ end
 
 
 def line_item_method(model)
+  l_model=LineItem.find_by(id:model[:id])
+unless l_model.present?
 l_model=LineItem.new
 l_model[:quantity]=model[:quantity].to_i
+l_model[:lineitem_id]=model[:id].to_i
 l_model[:price]=model[:price]
 l_model[:discount]=model[:discount]
 l_model[:tax_rate_override]=model[:tax_rate_override]
 #l_model[:tax_rate]=model[:tax_rate]
+l_model.save
+end
 l_model
+
 end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_120750) do
+ActiveRecord::Schema.define(version: 2019_02_13_101611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_120750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company_name"
+    t.integer "company_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_120750) do
     t.datetime "updated_at", null: false
     t.string "tax_rate_override"
     t.string "tax_rate"
+    t.integer "lineitem_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -76,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_120750) do
     t.string "phone_number"
     t.string "tags"
     t.string "source_Id"
-    t.timestamp "created_at"
+    t.datetime "created_at"
     t.integer "shipping_address_id"
     t.index ["order_id"], name: "index_orders_on_order_id", unique: true
   end

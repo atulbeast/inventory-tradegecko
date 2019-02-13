@@ -13,8 +13,12 @@
 #   rake "some:great:rake:task"
 # end
 #
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
+set :output, 'log/whenever.log'
+every :day, at: '10pm' do
+    rake "order:check_status"
+  end
+# every 1.days do
+#   rake order:check_status
 # end
 
 # Learn more: http://github.com/javan/whenever

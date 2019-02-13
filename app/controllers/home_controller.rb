@@ -18,6 +18,13 @@ class HomeController < ApplicationController
     #gecko.access_token = access_token
   end
 
+  def order_finalized
+    render :json=> (mapping_model(gecko_params))
+  end
+  def order_fulfilled
+   
+    render :json=> (mapping_model(gecko_params))
+  end
   def show_all_webhooks
     puts(@gecko.Webhook.where(status:'active'))
     render :json=> (@gecko.Webhook.where(status:'active').to_s)
@@ -25,10 +32,29 @@ class HomeController < ApplicationController
   
 
   def create_order
+    render :json=> (mapping_model(gecko_params))
+  end
+
+
+  def update_order
+    puts params
+  
+  end
+
+
+  private 
+  def create_shop_obj
+    @gecko = Gecko::Client.new(ENV['OAUTH_ID'],ENV['OAUTH_SECRET'] )
+    access_token = OAuth2::AccessToken.new(@gecko.oauth_client, ENV['ACCESS_TOKEN'])
+    @gecko.access_token = access_token
+  end
+
+  def mapping_model(gecko_params)
+  
     order_new=false
     common=ModelHelper.new
-    puts params
     order_main=@gecko.Order.find(gecko_params[:object_id])
+    if order_main[:order_number].match(/SO/).present?
     user=@gecko.User.find(order_main[:user_id])
     order_model=Order.find_by(order_id:order_main[:id])
     billing=@gecko.Address.find(order_main[:billing_address_id])
@@ -48,22 +74,10 @@ class HomeController < ApplicationController
    
   
   response= common.xml_method(user_model,order_model,line_item,bill_address_model,ship_address_model,order_new)
-   render :json=> (response)
+  else  
+  response="Order from another store"
   end
-
-
-  def manual_order
-  
   end
-
-
-  private 
-  def create_shop_obj
-    @gecko = Gecko::Client.new(ENV['OAUTH_ID'],ENV['OAUTH_SECRET'] )
-    access_token = OAuth2::AccessToken.new(@gecko.oauth_client, ENV['ACCESS_TOKEN'])
-    @gecko.access_token = access_token
-  end
-
 
   def gecko_params
 params.require(:home).permit( :object_id,:event,:timestamp,:resource_url)
